@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawerlayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+    <android.support.design.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#8000">
+
+
+            <ImageView
+                android:id="@+id/backGroundImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"/>
+
+
+            <android.support.design.widget.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:layout_scrollFlags="scroll|enterAlways"
+                    android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/><!--是否会顺着拉下去之后缩回--><!--如果要定义一个主题，可以从网上参考-->
+            </android.support.design.widget.AppBarLayout>
+
+
+
+            <android.support.v4.widget.SwipeRefreshLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                    <android.support.design.widget.CoordinatorLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+
+
+                            <include layout="@layout/title_layout"></include>
+                            <include layout="@layout/todayweather_layout"></include>
+                            <include layout="@layout/forecast_layout"></include>
+                            <include layout="@layout/aqi_layout"></include>
+                            <include layout="@layout/suggestion_layout"></include>
+
+                        </LinearLayout>
+
+
+
+                    </android.support.design.widget.CoordinatorLayout>
+
+
+
+                </ScrollView>
+
+            </android.support.v4.widget.SwipeRefreshLayout>
+
+
+    </android.support.design.widget.CoordinatorLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="#ffffff">
+        <fragment
+            android:id="@+id/fragment_id"
+            android:name="Fragments.ChooseLocation"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </fragment>
+    </LinearLayout>
+
+
+</android.support.v4.widget.DrawerLayout >
